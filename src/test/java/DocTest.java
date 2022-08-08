@@ -32,7 +32,16 @@ public class DocTest {
 
     @Test
     public void pTest(){
+        CURA c2 = new CURA();
+        c2.openSite("https://katalon-demo-cura.herokuapp.com/");
+        c2.openLoginPage();
+        c2.login();
 
+        String date = c2.makeApp();
+        date= date.replace('/','0');// 2400802022
+        var dateInInt= (Long.parseLong(date) / 100000000);
+        Assert.assertEquals(dateInInt , 24);
+        c2.quit();
     }
 
 
